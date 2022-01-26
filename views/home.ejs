@@ -1,43 +1,37 @@
 <%- include("header") -%>
 
 <!-- search bar and filter -->
-<div class="search-bar-and-filter">
-    <div class="search-bar">
-        <i class="fas fa-search"></i>
-        <input type="text" id="search" placeholder="Search for a country...">
-    </div>
-    <div class="filter">
-        <div class="filter__dropdown_face">
-            <div class="dropdown__text">Filter by Region</div>
-            <i class="fas fa-angle-down"></i>
+<form class="item" action="/filter" method="post">
+    <div class="search-bar-and-filter">
+        <div class="search-bar">
+            <input type="text" name="countryName" value="<%=searchCountryName%>" autocomplete="off" placeholder="Search for a country...">
+            <button type="submit" name="region" value=""><i class="fas fa-search"></i></button>
+            
         </div>
-
-        <div class="dropdown__items">
-            <form class="item" action="/filter" method="post">
+        <div class="filter">
+            <div class="filter__dropdown_face">
+                <div class="dropdown__text">Filter by Region</div>
+                <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="dropdown__items">
                 <button type="submit" name="region" value="Africa">Africa</button>
-            </form>
-            <form class="item" action="/filter" method="post">
                 <button type="submit" name="region" value="America">America</button>
-            </form>
-            <form class="item" action="/filter" method="post">
                 <button type="submit" name="region" value="Asia">Asia</button>
-            </form>
-            <form class="item" action="/filter" method="post">
                 <button type="submit" name="region" value="Europe">Europe</button>
-            </form>
-            <form class="item" action="/filter" method="post">
                 <button type="submit" name="region" value="Oceania">Oceania</button>
-            </form>
+            </div>
         </div>
-        
-
     </div>
+</form>
+<!-- country list -->
+<div class="container" id="container">
+
 
 </div>
-<!-- country list -->
-<div class="country-list">
-    
-
+<div class="loading">
+	<div class="ball"></div>
+	<div class="ball"></div>
+	<div class="ball"></div>
 </div>
 
 <%- include("footer") -%>
