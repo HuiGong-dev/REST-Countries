@@ -159,19 +159,34 @@ h2 {
     width: 12.719rem;
 }
 
+.item {
+    padding-top: 1em;
+}
+   
+
+
 .item > button {
     background-color: var(--clr-dark-blue-dark-mode);
     border: none;
     color: var(--clr-white);
     font-size: var(--fs-homepage-items);
-    padding-top: 1em;
+    
     padding-left: 1.5em;
-    padding-right: 8em;
+    width: 100%;
     cursor: pointer;
     position: relative;
+    text-align: left;
+    
 }
 
 .filter:hover .dropdown__items {
     display: block;
 }
+
+.item > button:hover {
+    font-weight: var(--fw-bold);
+    text-decoration: underline;
+    
+}
+
 
