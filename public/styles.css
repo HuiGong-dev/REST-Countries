@@ -46,6 +46,8 @@ h2 {
     font-weight: var(--fw-medium);
 }
 
+/* head-bar */
+
 .sticky {
 	position: -webkit-sticky;
 	position: sticky;
@@ -73,4 +75,46 @@ h2 {
 }
 .head-bar__theme-toggle > i {
     padding-right: 1em;
+}
+
+/* search bar and filter */
+
+.search-bar-and-filter {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    background-color: var(--clr-dark-blue-dark-mode);
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    padding-left: 2em;
+    border-radius: 5px;
+    
+}
+
+.search-bar > input {
+    background-color: var(--clr-dark-blue-dark-mode);
+    min-width: 25rem;
+    border: none;
+    outline: none;
+    font-size: var(--fs-homepage-items);
+    padding-left: 2em;
+    color: var(--clr-white);
+}
+
+.search-bar > input::placeholder {
+    color: var(--clr-white);
+    font-size: var(--fs-homepage-items);
 }
