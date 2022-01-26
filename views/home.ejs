@@ -7,10 +7,28 @@
         <input type="text" id="search" placeholder="Search for a country...">
     </div>
     <div class="filter">
-        <label for="dropdown" class="filter__dropdown_face">
+        <div class="filter__dropdown_face">
             <div class="dropdown__text">Filter by Region</div>
             <i class="fas fa-angle-down"></i>
-        </label>
+        </div>
+
+        <div class="dropdown__items">
+            <form class="item" action="/filter" method="post">
+                <button type="submit" name="region" value="Africa">Africa</button>
+            </form>
+            <form class="item" action="/filter" method="post">
+                <button type="submit" name="region" value="America">America</button>
+            </form>
+            <form class="item" action="/filter" method="post">
+                <button type="submit" name="region" value="Asia">Asia</button>
+            </form>
+            <form class="item" action="/filter" method="post">
+                <button type="submit" name="region" value="Europe">Europe</button>
+            </form>
+            <form class="item" action="/filter" method="post">
+                <button type="submit" name="region" value="Oceania">Oceania</button>
+            </form>
+        </div>
         
 
     </div>
