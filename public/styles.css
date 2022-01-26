@@ -1,0 +1,42 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+:root {
+    /* colors */
+
+    /* dark mode elements */
+    --clr-dark-blue-dark-mode: hsl(209, 23%, 22%);
+    /* dark mode background */
+    --clr-very-dark-blue-dark-mode: hsl(207, 26%, 17%);
+    /* light mode text */
+    --clr-very-dark-blue-light-mode: hsl(200, 15%, 8%);
+    /* light mode input */
+    --clr-dark-grey-light-mode: hsl(0, 0%, 52%);
+    /* light mode background */
+    --clr-very-light-grey-light-mode: hsl(0, 0%, 98%);
+    /* Dark Mode Text & Light Mode Elements */
+    --clr-white: hsl(0, 0%, 100%);
+
+    /* typography */
+
+    --fs-homepage-items: 14px;
+    --fs-detail-page: 16px;
+
+    /* font */
+
+    --ff-primary: 'Nunito Sans', sans-serif;
+
+    --fw-light: 300;
+    --fw-medium: 600;
+    --fw-bold: 800;
+
+}
+
+body {
+    font-family: var(--ff-primary);
+    color: var(--clr-white);
+    background-color: var(--clr-very-dark-blue-dark-mode);
+    font-size: var(--fs-homepage-items);
+    
+}
