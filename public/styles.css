@@ -46,11 +46,17 @@ h2 {
     font-weight: var(--fw-medium);
 }
 
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
 .head-bar {
     background-color: var(--clr-dark-blue-dark-mode);
     margin-top: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 1em;
+    padding-bottom: 1em;
     padding-left: 3rem;
     padding-right: 3rem;
     display: flex;
