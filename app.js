@@ -10,6 +10,7 @@ const baseURL = "https://restcountries.com/v3.1/";
 const searchAll = "all";
 const searchByName = "name/";
 const urlFields = "?fields=name,population,region,capital,subregion,tld,currencies,languages,borders,flags";
+const searchByCode = "https://restcountries.com/v3.1/alpha/";
 
 app.set('view engine', "ejs");
 app.use(bodyParser.urlencoded({
@@ -64,22 +65,47 @@ app.post("/detail", (req, res) => {
 
 app.get("/country/:country/detail", (req, res) => {
     const country = req.params.country;
-    fetchCountries(country, "all").then(data => {
-        if(!isNotFound(data)){
-            const refacted = refact(data);
-            console.log(refacted);
-            res.render("detail", {
-                country : refacted[0]
-            });
-        } else {
-            console.log("rendering 404 page");
-            res.render("404", {
-                searchCountryName:country
-            });
-        }
+    if (country === _.toUpper(country)){
+        getNameByCode(country).then(name => {
+            console.log(name);
+            fetchCountries(name, "all").then(data => {
+                console.log(data);
+                if(!isNotFound(data)){
+                    const refacted = refact(data);
+                    console.log(refacted);
+                    res.render("detail", {
+                        country : refacted[0]
+                    });
+                } else {
+                    console.log("rendering 404 page");
+                    res.render("404", {
+                        searchCountryName:country
+                    });
+                }
+        });
 
-    })
-})
+        });
+
+    } else  {
+        fetchCountries(country, "all").then(data => {
+            if(!isNotFound(data)){
+                const refacted = refact(data);
+                console.log(refacted);
+                res.render("detail", {
+                    country : refacted[0]
+                });
+            } else {
+                console.log("rendering 404 page");
+                res.render("404", {
+                    searchCountryName:country
+                });
+            }
+    
+        });
+
+    }
+    
+});
 
 
 app.listen(3000, () => {
@@ -122,6 +148,8 @@ function refact(dataList){
 }
 
 function refactData(data) {
+    
+    
     const refactedData = {
         'flag' : data['flags']['svg'],
         'name' : data['name']['common'],
@@ -174,5 +202,24 @@ function getNativeName(data) {
     return nativeNames;
 
 }
+
+async function getNameByCode(code){
+   const response = await fetch(searchByCode + code);
+   const country = await response.json();
+   const name = country[0]['name']['common'];
+   return name;
+}
+
+ async function getBorderName(data){
+    let borderNames = [];
+    for(let i = 0; i < data.length; i++){
+        const name = await getNameByCode(data[i]);
+        borderNames.push(name);
+    }
+    
+    return borderNames;
+
+}
+
 
 

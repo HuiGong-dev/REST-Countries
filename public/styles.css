@@ -300,6 +300,7 @@ footer > a:hover {
     padding-right: 2.5em;
     border-radius: 5px;
     margin-bottom: 3rem;
+    cursor: pointer;
 }
 
 .detail-content__info {
@@ -314,8 +315,31 @@ footer > a:hover {
     display: flex;
     flex-direction: row;
 
+    
+
 }
 .detail-conent__info__country__attribute__left {
     margin-right: 3rem;
 
+}
+.detail-conent__info__border {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.border-button {
+    border: none;
+    background-color: var(--clr-dark-blue-dark-mode) ;
+    color: var(--clr-white);
+    box-shadow: var(--bs);
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1em;
+    margin-right: 0.5em;
 }
