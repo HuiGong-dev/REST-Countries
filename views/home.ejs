@@ -4,9 +4,10 @@
 <form class="item" action="/filter" method="post">
     <div class="search-bar-and-filter">
         <div class="search-bar">
-            <input type="text" name="countryName" value="<%=searchCountryName%>" autocomplete="off" placeholder="Search for a country...">
+            <input type="text" name="countryName" value="<%=searchCountryName%>" autocomplete="off"
+                placeholder="Search for a country...">
             <button type="submit" name="region" value=""><i class="fas fa-search"></i></button>
-            
+
         </div>
         <div class="filter">
             <div class="filter__dropdown_face">
@@ -25,21 +26,24 @@
 </form>
 <!-- country list -->
 <div class="container" id="container">
-    
+
     <% matchedCountries.forEach(country => { %>
+    <form action="/detail" method="post">
         <div class="country item">
-           <div class="country__flag">
-               <img src="<%= country.flag%>" alt="flag" class="country__flag__img">
-           </div>
-           <div class="country__info">
-               <h3 class="country__name"><%= country.name %></h3>
-               <p><strong>Population: </strong><%= country.population %> </p>
-               <p><strong>Region: </strong><%= country.region %></p>
-               <p><strong>Capital: </strong><%= country.capital %> </p>
-           </div>
+            <button type="submit"  class="country__flag" name="detailCountry"
+            value="<%= country.name %>" onclick="this.form.submit()">
+                <img src="<%= country.flag%>" alt="flag" class="country__flag__img" >
+            </button>
+            <div class="country__info">
+                <h3 class="country__name"><%= country.name %></h3>
+                <p><strong>Population: </strong><%= country.population %> </p>
+                <p><strong>Region: </strong><%= country.region %></p>
+                <p><strong>Capital: </strong><%= country.capital %> </p>
+            </div>
         </div>
-        <% }) %>
-     
+    </form>
+    <% }) %>
+
 
 </div>
 

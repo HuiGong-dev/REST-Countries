@@ -32,6 +32,9 @@
   --fw-light: 300;
   --fw-medium: 600;
   --fw-bold: 800;
+
+  /* box shadow */
+  --bs: 0 10px 20px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
 }
 
 body {
@@ -69,6 +72,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  box-shadow: var(--bs);
 }
 
 .head-bar__theme-toggle {
@@ -162,7 +166,7 @@ h2 {
   padding-bottom: 1em;
   position: absolute;
   width: 12.719rem;
-  z-index: 100;
+  z-index: 50;
 }
 
 .dropdown__items > button {
@@ -197,65 +201,90 @@ h2 {
   padding-right: 3rem;
   padding-bottom: 3rem;
   margin: 0;
-  
-  
-  
 
   display: grid;
   grid-template-columns: repeat(auto-fill, 22%);
   /* grid-gap: 3%; */
   justify-content: space-between;
-  
 }
 
 .country {
-    border-radius: 5px;
+  border-radius: 5px;
   background-color: var(--clr-dark-blue-dark-mode);
   margin-bottom: 3rem;
 }
+.country > button {
+  border: none;
+}
 .country__flag {
-    /* background-color: red; */
+  /* background-color: red; */
   width: 100%;
   padding-top: 56.25%;
   position: relative;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-
-
 .country__flag__img {
-    border-radius: 5px;
-    position: absolute;
-    top: 0;
-   left: 0;
-   bottom: 0;
-   right: 0;
-   object-fit: cover;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;
   width: 100%;
   height: 100%;
 }
 
 .country__info {
-  padding:1.5em;
+  padding: 1.5em;
   font-size: var(--fs-homepage-items);
 }
 
 footer {
-    text-align: center;
-    color: var(--clr-white);
-    
-    height: 50px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    margin-bottom: 0px;
+  text-align: center;
+  color: var(--clr-white);
+
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
 footer > a {
-    text-decoration: none;
-    color: var(--clr-white);
+  text-decoration: none;
+  color: var(--clr-white);
 }
 
 footer > a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
+}
 
+/* detail page */
+.detail-page {
+  margin: 3rem;
+}
+
+.detail-content {
+    max-width: 26rem ;
+}
+
+.detail-content__flag {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.detail-content__flag__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
 }

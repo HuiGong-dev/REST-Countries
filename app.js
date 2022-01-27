@@ -4,6 +4,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import _ from "lodash";
 
+
 const app = express();
 const baseURL = "https://restcountries.com/v3.1/";
 const searchAll = "all";
@@ -54,12 +55,31 @@ app.get("/country/:countryName/region/:region", (req, res) => {
             });
         }
       });
-    
-    
-
-    
-
 });
+
+app.post("/detail", (req, res) => {
+    const country = req.body.detailCountry;
+    res.redirect(`/country/${country}/detail`);
+})
+
+app.get("/country/:country/detail", (req, res) => {
+    const country = req.params.country;
+    fetchCountries(country, "all").then(data => {
+        if(!isNotFound(data)){
+            const refacted = refact(data);
+            console.log(refacted);
+            res.render("detail", {
+                country : refacted[0]
+            });
+        } else {
+            console.log("rendering 404 page");
+            res.render("404", {
+                searchCountryName:country
+            });
+        }
+
+    })
+})
 
 
 app.listen(3000, () => {
@@ -72,7 +92,6 @@ async function fetchCountries(searchCountry, searchRegion) {
     const response = await fetch(url);
     const data = await response.json();
     const matched = filterRegion(data, searchRegion);
-    console.log(Object.keys(matched).length);
     return matched;
 
 }
@@ -98,7 +117,7 @@ function refact(dataList){
         refactDataList.push(refactData(dataList[i]));
     }
     console.log("refactDataList length:"+refactDataList.length);
-    console.log(refactDataList[0]);
+    // console.log(refactDataList[0]);
     return refactDataList;
 }
 

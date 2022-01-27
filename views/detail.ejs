@@ -1,6 +1,28 @@
 <%- include("header") -%>
-<div>
-    <h1>this is detail page</h1>
+<div class="detail-page">
+    <button class="back-button" onclick="history.back()">← Back</button>
+    <div class="detail-content">
+        <div class="detail-content__flag">
+            <img src="<%= country.flag%>" alt="flag" class="detail-content__flag__img">
+        </div>
+        <div class="detail-content__info">
+            <div class="detail-conent__info__country">
+                <h1><%= country.name%></h1>
+                <p><strong>Native Name: </strong><%= country.nativeName %> </p>
+                <p><strong>Population: </strong><%= country.population %></p>
+                <p><strong>Region: </strong><%= country.region %> </p>
+                <p><strong>Sub Region: </strong><%= country.subregion %> </p>
+                <p><strong>Capital: </strong><%= country.capital %> </p>
+                <p><strong>Top Level Domain: </strong><%= country.tld %> </p>
+                <p><strong>Currencies: </strong><%= country.currencies %> </p>
+                <p><strong>Languages: </strong><%= country.languages %> </p>
+            </div>
+            <div class="detail-conent__info__border">
+                <p><strong>Border Countries: </strong></p>
+            </div>
+        </div>
+    </div>
+    
 </div>
 
-<%- include("footer"
+<%- include("footer")  -%>
