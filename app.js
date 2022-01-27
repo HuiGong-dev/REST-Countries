@@ -164,7 +164,7 @@ function refactData(data) {
         //currency is object
         'currencies' : getCurrencies(data['currencies']),
         // capital is array
-        'capital' : data['capital'],
+        'capital' : data['capital'].join(", "),
         // languages is object
         'languages' : getLanguages(data['languages']),
         'borders' : data['borders'],
