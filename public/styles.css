@@ -267,24 +267,55 @@ footer > a:hover {
 }
 
 .detail-content {
-    max-width: 26rem ;
+    
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+
 }
 
 .detail-content__flag {
-  width: 100%;
-  padding-top: 56.25%;
+    width: 40% ;
+    margin-right: 10%;
+  
   position: relative;
   border-radius: 5px;
-  cursor: pointer;
+  
 }
 
 .detail-content__flag__img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
   width: 100%;
-  height: 100%;
+}
+
+.back-button {
+    border: none;
+    background-color: var(--clr-dark-blue-dark-mode) ;
+    color: var(--clr-white);
+    box-shadow: var(--bs);
+    padding-top: .75em;
+    padding-bottom: .75em;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+
+.detail-content__info {
+    width: 50%;
+}
+
+.detail-conent__info__country{
+    margin-bottom: 3rem;
+}
+
+.detail-conent__info__country__attribute{
+    display: flex;
+    flex-direction: row;
+
+}
+.detail-conent__info__country__attribute__left {
+    margin-right: 3rem;
+
 }
