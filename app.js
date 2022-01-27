@@ -85,7 +85,8 @@ function filterRegion(data, region) {
 
 function isNotFound(data){
     const firstProperty = Object.keys(data)[0];
-    return data[firstProperty]=== 404? true : false;
+    const length = Object.keys(data).length;
+    return data[firstProperty]=== 404? true : false || length === 0;
 }
 
 

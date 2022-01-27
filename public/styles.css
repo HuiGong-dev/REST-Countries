@@ -36,6 +36,8 @@
 
 body {
   margin: 0;
+  margin-bottom: 50px;
+  min-height: 100vh;
   font-family: var(--ff-primary);
   color: var(--clr-white);
   background-color: var(--clr-very-dark-blue-dark-mode);
@@ -197,6 +199,7 @@ h2 {
   margin: 0;
   
   
+  
 
   display: grid;
   grid-template-columns: repeat(auto-fill, 22%);
@@ -206,6 +209,7 @@ h2 {
 }
 
 .country {
+    border-radius: 5px;
   background-color: var(--clr-dark-blue-dark-mode);
   margin-bottom: 3rem;
 }
@@ -214,11 +218,13 @@ h2 {
   width: 100%;
   padding-top: 56.25%;
   position: relative;
+  border-radius: 5px;
 }
 
 
 
 .country__flag__img {
+    border-radius: 5px;
     position: absolute;
     top: 0;
    left: 0;
@@ -234,3 +240,23 @@ h2 {
   font-size: var(--fs-homepage-items);
 }
 
+footer {
+    text-align: center;
+    color: var(--clr-white);
+    
+    position: fixed;
+    height: 50px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+footer > a {
+    text-decoration: none;
+    color: var(--clr-white);
+}
+
+footer > a:hover {
+    text-decoration: underline;
+
+}
