@@ -19,9 +19,10 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     // test call api
     fetchCountries("all", "all").then(data => {
+        const refacted = refact(data);
         res.render("home", {
             searchCountryName: "",
-            matchedCountries: data
+            matchedCountries: refacted
         });
     });
 });
@@ -40,10 +41,10 @@ app.get("/country/:countryName/region/:region", (req, res) => {
     fetchCountries(countryName, region)
       .then(data => {
         if(!isNotFound(data)){
-            console.log(getNativeName(data[0]));
+            const refacted = refact(data);
             res.render("home", {
                 searchCountryName: searchText,
-                matchedCountries: data
+                matchedCountries: refacted
             });
         } else {
             console.log("rendering 404 page");
@@ -86,9 +87,73 @@ function isNotFound(data){
     return data[firstProperty]=== 404? true : false;
 }
 
-function getNativeName(country) {
-    const firstProperty = Object.keys(country['name']['nativeName'])[0];
-    return country['name']['nativeName'][firstProperty]['official'];
+
+
+function refact(dataList){
+    let refactDataList = [];
+    let length = Object.keys(dataList).length;
+    for ( var i = 0; i < length; i++){
+        refactDataList.push(refactData(dataList[i]));
+    }
+    console.log("refactDataList length:"+refactDataList.length);
+    console.log(refactDataList[0]);
+    return refactDataList;
+}
+
+function refactData(data) {
+    const refactedData = {
+        'flag' : data['flags']['svg'],
+        'name' : data['name']['common'],
+        'nativeName' : getNativeName(data['name']['nativeName']),
+        'population' : data['population'],
+        'region' : data['region'],
+        'subregion' : data['subregion'],
+        //tld is array
+        'tld' : data['tld'],
+        //currency is object
+        'currencies' : getCurrencies(data['currencies']),
+        // capital is array
+        'capital' : data['capital'],
+        // languages is object
+        'languages' : getLanguages(data['languages']),
+        'borders' : data['borders'],
+    }
+    return refactedData;
+}
+
+function getCurrencies(data) {
+    let currencies = [];
+    for(var key in data){
+        if(data.hasOwnProperty(key)){
+            currencies.push(data[key]['name']);
+        }
+    }
+    //console.log("currencies:" + currencies);
+    return currencies;
+}
+
+function getLanguages(data) {
+    let languages = [];
+    for (var key in data) {
+        if (data.hasOwnProperty(key)){
+            languages.push(data[key]);
+        }
+    }
+    //console.log("languages:" + languages)
+    return languages;
+}
+
+function getNativeName(data) {
+    let nativeNames = [];
+    for (var key in data) {
+        if (data.hasOwnProperty(key)){
+            nativeNames.push(data[key]['common']);
+        }
+    }
+    return nativeNames;
 
 }
 
+// matchedCountries.forEach(country => {
+
+// })
