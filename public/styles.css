@@ -207,11 +207,24 @@ h2 {
   background-color: var(--clr-dark-blue-dark-mode);
   margin-bottom: 2em;
 }
+.country__flag {
+    /* background-color: red; */
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
 
 
 .country__flag__img {
+    position: absolute;
+    top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   object-fit: cover;
   width: 100%;
-  height: 56.25%; 
+  height: 100%;
 }
 
 .country__info {
