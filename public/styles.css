@@ -159,6 +159,7 @@ h2 {
   padding-bottom: 1em;
   position: absolute;
   width: 12.719rem;
+  z-index: 100;
 }
 
 .dropdown__items > button {
