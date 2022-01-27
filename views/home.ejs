@@ -25,130 +25,21 @@
 </form>
 <!-- country list -->
 <div class="container" id="container">
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
-    <div class="country item">
-        <div class="country__flag">
-            <img src="https://flagcdn.com/pg.svg" alt="flag" class="country__flag__img">
-        </div>
-        <div class="country__info">
-            <h3 class="country__name">Papua New Guinea</h3>
-            <p><strong>Population: </strong>8947027 </p>
-            <p><strong>Region: </strong>Oceania </p>
-            <p><strong>Capital: </strong>Port Moresby </p>
-        </div>
-    </div>
     
-    
-
+    <% matchedCountries.forEach(country => { %>
+        <div class="country item">
+           <div class="country__flag">
+               <img src="<%= country.flag%>" alt="flag" class="country__flag__img">
+           </div>
+           <div class="country__info">
+               <h3 class="country__name"><%= country.name %></h3>
+               <p><strong>Population: </strong><%= country.population %> </p>
+               <p><strong>Region: </strong><%= country.region %></p>
+               <p><strong>Capital: </strong><%= country.capital %> </p>
+           </div>
+        </div>
+        <% }) %>
+     
 
 </div>
 

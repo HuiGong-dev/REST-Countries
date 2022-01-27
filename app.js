@@ -17,9 +17,10 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-    // test call api
+    // get all countries
     fetchCountries("all", "all").then(data => {
         const refacted = refact(data);
+        console.log("get first country flag: " + refacted[0].flag);
         res.render("home", {
             searchCountryName: "",
             matchedCountries: refacted
@@ -154,9 +155,4 @@ function getNativeName(data) {
 
 }
 
-// <% matchedCountries.forEach(country => { %>
-//     <div class="country-item">
 
-//     </div>
-
-//     <% }) %>
