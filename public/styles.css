@@ -244,7 +244,6 @@ footer {
     text-align: center;
     color: var(--clr-white);
     
-    position: fixed;
     height: 50px;
     bottom: 0px;
     left: 0px;
