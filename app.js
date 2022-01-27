@@ -160,7 +160,7 @@ function refactData(data) {
         'region' : data['region'],
         'subregion' : data['subregion'],
         //tld is array
-        'tld' : data['tld'],
+        'tld' : data['tld'].join(" "),
         //currency is object
         'currencies' : getCurrencies(data['currencies']),
         // capital is array
