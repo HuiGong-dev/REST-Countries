@@ -156,7 +156,7 @@ function refactData(data) {
         'flag' : data['flags']['svg'],
         'name' : data['name']['common'],
         'nativeName' : getNativeName(data['name']['nativeName']),
-        'population' : data['population'],
+        'population' : setThoughsandSeperator(data['population']),
         'region' : data['region'],
         'subregion' : data['subregion'],
         //tld is array
@@ -180,7 +180,7 @@ function getCurrencies(data) {
         }
     }
     //console.log("currencies:" + currencies);
-    return currencies;
+    return currencies.join(", ");
 }
 
 function getLanguages(data) {
@@ -191,7 +191,7 @@ function getLanguages(data) {
         }
     }
     //console.log("languages:" + languages)
-    return languages;
+    return languages.join(", ");
 }
 
 function getNativeName(data) {
@@ -201,7 +201,7 @@ function getNativeName(data) {
             nativeNames.push(data[key]['common']);
         }
     }
-    return nativeNames;
+    return nativeNames.join(", ");
 
 }
 
@@ -222,6 +222,7 @@ async function getNameByCode(code){
     return borderNames;
 
 }
-
-
+function setThoughsandSeperator(number){
+    return number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
 

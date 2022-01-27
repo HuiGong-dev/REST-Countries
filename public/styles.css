@@ -215,6 +215,7 @@ h2 {
 }
 .country > button {
   border: none;
+  background-color: var(--clr-dark-blue-dark-mode);
 }
 .country__flag {
   /* background-color: red; */
