@@ -66,6 +66,7 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 
 .head-bar__theme-toggle {
@@ -192,7 +193,7 @@ h2 {
 .container {
   padding-left: 3rem;
   padding-right: 3rem;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
   margin: 0;
   
   
@@ -206,7 +207,7 @@ h2 {
 
 .country {
   background-color: var(--clr-dark-blue-dark-mode);
-  margin-bottom: 2em;
+  margin-bottom: 3rem;
 }
 .country__flag {
     /* background-color: red; */
@@ -229,7 +230,7 @@ h2 {
 }
 
 .country__info {
-  padding:1em;
+  padding:1.5em;
   font-size: var(--fs-homepage-items);
 }
 
