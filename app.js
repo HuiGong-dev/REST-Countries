@@ -73,8 +73,9 @@ app.get("/country/:country/detail", (req, res) => {
                 if(!isNotFound(data)){
                     const refacted = refact(data);
                     console.log(refacted);
+                    const result = refacted.length === 3? refacted[2] : refacted[0]
                     res.render("detail", {
-                        country : refacted[0]
+                        country :  result
                     });
                 } else {
                     console.log("rendering 404 page");
@@ -91,8 +92,9 @@ app.get("/country/:country/detail", (req, res) => {
             if(!isNotFound(data)){
                 const refacted = refact(data);
                 console.log(refacted);
+                const result = refacted.length === 3? refacted[2] : refacted[0]
                 res.render("detail", {
-                    country : refacted[0]
+                    country : result
                 });
             } else {
                 console.log("rendering 404 page");
