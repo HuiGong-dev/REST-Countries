@@ -278,6 +278,7 @@ h2 {
 
 .not-found {
   margin-left: 3rem;
+  flex: 1;
 }
 
 /* country card */
