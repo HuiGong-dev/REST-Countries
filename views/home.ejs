@@ -31,7 +31,7 @@
     <form action="/detail" method="post">
         <div class="country item">
             <button type="submit"  class="country__flag" name="detailCountry"
-            value="<%= country.name %>" onclick="this.form.submit()">
+            value="<%= country.cca3 %>" onclick="this.form.submit()">
                 <img src="<%= country.flag%>" alt="flag" class="country__flag__img" >
             </button>
             <div class="country__info">
@@ -39,6 +39,7 @@
                 <p><strong>Population: </strong><%= country.population %> </p>
                 <p><strong>Region: </strong><%= country.region %></p>
                 <p><strong>Capital: </strong><%= country.capital %> </p>
+                <p><strong>Independent: </strong><%= country.independent %> </p>
             </div>
         </div>
     </form>

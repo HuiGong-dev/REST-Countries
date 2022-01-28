@@ -9,7 +9,7 @@ const app = express();
 const baseURL = "https://restcountries.com/v3.1/";
 const searchAll = "all";
 const searchByName = "name/";
-const urlFields = "?fields=name,population,region,capital,subregion,tld,currencies,languages,borders,flags";
+const urlFields = "?fields=name,population,region,capital,subregion,tld,currencies,languages,borders,flags,cca3,independent";
 const searchByCode = "https://restcountries.com/v3.1/alpha/";
 
 app.set('view engine', "ejs");
@@ -59,54 +59,27 @@ app.get("/country/:countryName/region/:region", (req, res) => {
 });
 
 app.post("/detail", (req, res) => {
-    const country = req.body.detailCountry;
-    res.redirect(`/country/${country}/detail`);
+    const countryCode = req.body.detailCountry;
+    console.log(countryCode);
+    res.redirect(`/country/${countryCode}/detail`);
 })
 
-app.get("/country/:country/detail", (req, res) => {
-    const country = req.params.country;
-    if (country === _.toUpper(country)){
-        getNameByCode(country).then(name => {
-            console.log(name);
-            fetchCountries(name, "all").then(data => {
-                console.log(data);
+app.get("/country/:countryCode/detail", (req, res) => {
+    const countryCode = req.params.countryCode;
+    getCountryByCode(countryCode).then(data => {
                 if(!isNotFound(data)){
-                    const refacted = refact(data);
-                    console.log(refacted);
-                    const result = refacted.length === 3? refacted[2] : refacted[0]
+                    const refacted = refactData(data[0]);  
                     res.render("detail", {
-                        country :  result
+                        country :  refacted
                     });
                 } else {
                     console.log("rendering 404 page");
                     res.render("404", {
-                        searchCountryName:country
+                        searchCountryName:countryCode
                     });
                 }
-        });
 
-        });
-
-    } else  {
-        fetchCountries(country, "all").then(data => {
-            if(!isNotFound(data)){
-                const refacted = refact(data);
-                console.log(refacted);
-                const result = refacted.length === 3? refacted[2] : refacted[0]
-                res.render("detail", {
-                    country : result
-                });
-            } else {
-                console.log("rendering 404 page");
-                res.render("404", {
-                    searchCountryName:country
-                });
-            }
-    
-        });
-
-    }
-    
+    })
 });
 
 
@@ -150,6 +123,8 @@ function refact(dataList){
 }
 
 function refactData(data) {
+    const capital = data['capital'] === undefined? [] : data['capital'].join(", ");
+    const borders = data['borders'] === undefined? [] : data['borders'];
     
     
     const refactedData = {
@@ -164,10 +139,12 @@ function refactData(data) {
         //currency is object
         'currencies' : getCurrencies(data['currencies']),
         // capital is array
-        'capital' : data['capital'].join(", "),
+        'capital' : capital,
         // languages is object
         'languages' : getLanguages(data['languages']),
-        'borders' : data['borders'],
+        'borders' : borders,
+        'cca3' : data['cca3'],
+        'independent' : data['independent']
     }
     return refactedData;
 }
@@ -211,6 +188,12 @@ async function getNameByCode(code){
    const name = country[0]['name']['common'];
    return name;
 }
+async function getCountryByCode(code){
+    const response = await fetch(searchByCode + code);
+    const country = await response.json();
+    return country;
+ }
+
 
  async function getBorderName(data){
     let borderNames = [];
