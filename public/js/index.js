@@ -1,7 +1,10 @@
 const themeSwitch = document.getElementById('head-bar__theme-toggle');
 const toggleSwitch = document.getElementById('checkbox');
 const currentTheme = localStorage.getItem('theme');
+const search = document.getElementById('search');
+const matchList = document.getElementById('match-list');
 
+// handle theme toggle
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
   
@@ -23,4 +26,43 @@ function switchTheme(e) {
 toggleSwitch.addEventListener('change', switchTheme, false);
 themeSwitch.addEventListener('click', ()=>{
     toggleSwitch.click();
+});
+
+//handle search input autocomplete
+// search countries-code.json and filter it
+
+const searchCountries = async searchText => {
+    const res = await fetch('/data/countries-code.json');
+    const countries = await res.json();
+    //get matches to current text input
+    let matches = countries.filter(country => {
+        const regex = new RegExp(`^${searchText}`, 'gi');
+        return country.name.match(regex) ||country.code.match(regex);
+    });
+
+    if (searchText.length === 0){
+        matches = [];
+        matchList.innerHTML = '';
+    }
+
+    outputHtml(matches);
+}
+
+// show results in HTML
+const outputHtml = matches => {
+    if(matches.length > 0) {
+        const html = matches.map(match => `
+        <button class="suggestion" type="submit" name="detailCountry" value="${match.code}">
+        ${match.name} (${match.code})
+        </button>
+        
+        `)
+        .join('');
+        matchList.innerHTML = html;
+
+    }
+}
+
+search.addEventListener('input', () => {
+    searchCountries(search.value);
 });

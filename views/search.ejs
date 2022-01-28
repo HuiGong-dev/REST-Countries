@@ -1,12 +1,15 @@
 <!-- search bar and filter -->
 <form class="item" action="/filter" method="post">
     <div class="search-bar-and-filter">
-        <div class="search-bar">
-            <input type="text" name="countryName" value="<%=searchCountryName%>" autocomplete="off"
-                placeholder="Search for a country...">
-            <button type="submit" name="region" value=""><i class="fas fa-search"></i></button>
-
+        <div class="search-wrapper">
+            <div class="search-bar">
+                <input type="text" id="search" name="countryName" value="<%=searchCountryName%>" autocomplete="off"
+                    placeholder="Search for a country...">
+                <button type="submit" name="region" value=""><i class="fas fa-search"></i></button>
+            </div>
+            <div class="match-list" id="match-list"></div>
         </div>
+
         <div class="filter">
             <div class="filter__dropdown_face">
                 <div class="dropdown__text">Filter by Region</div>

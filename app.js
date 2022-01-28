@@ -31,10 +31,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/filter", (req, res) => {
-    const region = req.body.region === "" ? "all" : req.body.region;
+    const region = req.body.region === "" || undefined ? "all" : req.body.region;
     const countryName = req.body.countryName === "" ? "all" : req.body.countryName;
-    console.log("search country: " + countryName + " region: " + region);
-    res.redirect(`/country/${countryName}/region/${region}`);
+    const countryCode = req.body.detailCountry;
+    console.log("search country: " + countryName + " region: " + region + "code: " + countryCode);
+    if (countryCode !== undefined) {
+        res.redirect(`/country/${countryCode}/detail`);
+    } else {
+        res.redirect(`/country/${countryName}/region/${region}`);
+    }
+    
 });
 
 app.get("/country/:countryName/region/:region", (req, res) => {
