@@ -204,6 +204,7 @@ h2 {
   cursor: pointer;
   position: relative;
   text-align: left;
+  border-radius: 5px;
 }
 
 .suggestion:hover {
