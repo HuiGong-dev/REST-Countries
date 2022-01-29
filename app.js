@@ -22,7 +22,6 @@ app.get("/", (req, res) => {
     // get all countries
     fetchCountries("all", "all").then(data => {
         const refacted = refact(data);
-        console.log("get first country flag: " + refacted[0].flag);
         res.render("home", {
             searchCountryName: "",
             matchedCountries: refacted
@@ -124,7 +123,6 @@ function refact(dataList){
         refactDataList.push(refactData(dataList[i]));
     }
     console.log("refactDataList length:"+refactDataList.length);
-    // console.log(refactDataList[0]);
     return refactDataList;
 }
 
@@ -162,7 +160,7 @@ function getCurrencies(data) {
             currencies.push(data[key]['name']);
         }
     }
-    //console.log("currencies:" + currencies);
+    
     return currencies.join(", ");
 }
 
@@ -173,7 +171,7 @@ function getLanguages(data) {
             languages.push(data[key]);
         }
     }
-    //console.log("languages:" + languages)
+    
     return languages.join(", ");
 }
 
