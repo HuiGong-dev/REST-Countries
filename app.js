@@ -148,9 +148,13 @@ function refactData(data) {
         'languages' : getLanguages(data['languages']),
         'borders' : borders,
         'cca3' : data['cca3'],
-        'independent' : data['independent']
+        'independent' : getIndependency(data['independent'])
     }
     return refactedData;
+}
+
+function getIndependency(independency){
+    return independency === true? 'Yes':'No';
 }
 
 function getCurrencies(data) {

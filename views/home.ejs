@@ -9,7 +9,7 @@
         <div class="country item">
             <button type="submit"  class="country__flag" name="detailCountry"
             value="<%= country.cca3 %>" onclick="this.form.submit()">
-                <img src="<%= country.flag%>" alt="flag" class="country__flag__img" >
+                <img src="<%= country.flag%>" alt="flag" loading="lazy" class="country__flag__img" >
             </button>
             <div class="country__info">
                 <h3 class="country__name"><%= country.name %></h3>
