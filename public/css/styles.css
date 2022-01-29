@@ -171,7 +171,7 @@ h2 {
   outline: none;
   font-size: var(--fs-homepage-items);
   padding-left: 1em;
-  color: var(--clr-input);
+  color: var(--clr-text);
 }
 
 .search-bar > input::placeholder {
