@@ -63,6 +63,20 @@ const outputHtml = matches => {
     }
 }
 
-search.addEventListener('input', () => {
-    searchCountries(search.value);
-});
+if(search !== null ){
+    search.addEventListener('input', () => {
+        searchCountries(search.value);
+    });
+}
+
+// go to main page if no history else go to hisotry 
+function handleBackButtonClickEvent(){
+    if (history.length < 3){
+        location = location.origin;
+    } else {
+        history.back();
+    }
+    
+}
+
+
