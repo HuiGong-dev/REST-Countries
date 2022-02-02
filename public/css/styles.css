@@ -218,12 +218,12 @@ h2 {
   max-width: calc(100% - 6rem);
   z-index: 50;
   box-shadow: var(--bs);
-  padding-left: var(--pd-small);
+  padding-left: calc(var(--pd-standard) + 1rem);
   margin-top: .5em;
 }
 @media (min-width: 900px) {
   .match-list {
-    padding-left: var(--pd-standard);
+    padding-left: calc(var(--pd-standard) + 1rem);;
   }
 }
 
