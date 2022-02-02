@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
+    //console.log(req.acceptsLanguages('de', 'en'));
     // get all countries
     fetchCountries("all", "all").then(data => {
         const refacted = refact(data);
@@ -65,7 +66,7 @@ app.get("/country/:countryName/region/:region", (req, res) => {
 
 app.post("/detail", (req, res) => {
     const countryCode = req.body.detailCountry;
-    console.log(countryCode);
+    //console.log(countryCode);
     res.redirect(`/country/${countryCode}/detail`);
 })
 
@@ -94,7 +95,7 @@ app.listen(3000, () => {
 
 async function fetchCountries(searchCountry, searchRegion) {
     const url = searchCountry === "all" ? (baseURL + searchAll + urlFields) : (baseURL + searchByName + searchCountry + urlFields);
-    console.log(url)
+    //console.log(url)
     const response = await fetch(url);
     const data = await response.json();
     const matched = filterRegion(data, searchRegion);
@@ -122,7 +123,7 @@ function refact(dataList){
     for ( var i = 0; i < length; i++){
         refactDataList.push(refactData(dataList[i]));
     }
-    console.log("refactDataList length:"+refactDataList.length);
+    //console.log("refactDataList length:"+refactDataList.length);
     return refactDataList;
 }
 
