@@ -25,12 +25,15 @@
                 </div>
             </div>
             <div class="detail-conent__info__border">
-                <p><strong>Border Countries: </strong></p>
-                <% country.borders.forEach(item => { %>
-                    <form action="/detail" method="post">
-                        <button type="submit" name="detailCountry" value="<%= item%>" class="border-button"><%= item%></button>
-                    </form>
-               <% }) %>
+                <p class="detail-conent__info__border__title"><strong>Border Countries: </strong></p>
+                <div class="detail-conent__info__border__items">
+                    <% country.borders.forEach(item => { %>
+                        <form action="/detail" method="post" class="border-item">
+                            <button type="submit" name="detailCountry" value="<%= item%>" class="border-button"><%= item%></button>
+                        </form>
+                   <% }) %>
+                </div>
+                
 
                 
             </div>

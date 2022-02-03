@@ -6,14 +6,18 @@ const matchList = document.getElementById('match-list');
 const filter = document.getElementById('filter');
 const dropdown__items = document.getElementById('dropdown__items');
 
-filter.addEventListener('click', ()=>{
-    if (dropdown__items.style.display === "none"){
-        dropdown__items.style.display = "block";
-    } else {
-        dropdown__items.style.display = "none";
+if (filter !== null) {
+    filter.addEventListener('click', ()=>{
+        if (dropdown__items.style.display === "none"){
+            dropdown__items.style.display = "block";
+        } else {
+            dropdown__items.style.display = "none";
+    
+        }
+    });
+}
 
-    }
-});
+
 
 // handle theme toggle
 if (currentTheme) {
