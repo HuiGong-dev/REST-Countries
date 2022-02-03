@@ -17,6 +17,12 @@ if (filter !== null) {
     });
 }
 
+if (matchList !==null) {
+    matchList.addEventListener('click', ()=>{
+        matchList.style.display = 'none';
+    });
+}
+
 
 
 // handle theme toggle
@@ -80,6 +86,7 @@ const outputHtml = matches => {
 
 if(search !== null ){
     search.addEventListener('input', () => {
+        matchList.style.display = 'block';
         searchCountries(search.value);
     });
 }
