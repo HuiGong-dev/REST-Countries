@@ -20,6 +20,7 @@ if (filter !== null) {
 if (matchList !==null) {
     matchList.addEventListener('click', ()=>{
         matchList.style.display = 'none';
+        search.value = '';
     });
 }
 
