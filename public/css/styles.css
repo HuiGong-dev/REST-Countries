@@ -90,6 +90,10 @@ h2 {
   background-color: var(--clr-element);
   border: none;
   color: var(--clr-text);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   
 }
 
@@ -126,6 +130,26 @@ h2 {
     padding-left: var(--pd-standard);
     padding-right: var(--pd-standard);
   }
+}
+.stand-with-ukraine {
+  font-size: var(--fs-homepage-items);
+  margin-bottom: 0;
+  margin-top: 0.5em;
+  text-decoration: none;
+  background-color: var(--clr-element);
+  border: none;
+  color: var(--clr-text);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  
+}
+
+.stand-with-ukraine:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: var(--fw-bold);
 }
 
 .head-bar__theme-toggle {
